@@ -1,0 +1,54 @@
+﻿@{
+    ViewData["Title"] = "Postuler";
+}
+
+@model Candidat
+
+<div>
+    <form asp-action="Postuler" method="post" enctype="multipart/form-data">
+
+        <label class="control-label" asp-for="Nom">Nom : </label>
+        <input class="form-control" asp-for="Nom" type="text" required />
+        <br />
+        <label class="control-label" asp-for="Prenom">Prénom : </label>
+        <input class="form-control" asp-for="Prenom" type="text" required />
+        <br />
+        <label class="control-label" asp-for="Email">Email : </label>
+        <input class="form-control" asp-for="Email" type="email" required />
+        <br />
+        <label class="control-label" asp-for="Tel">Télephone : </label>
+        <input class="form-control" asp-for="Tel" type="tel" required />
+        <br />
+        <label class="control-label" asp-for="NiveauDetude">Niveau d’étude : </label>
+        <select class="form-control" asp-for="NiveauDetude" required>
+            <option>Bac</option>
+            <option>Bac +1</option>
+            <option>Autodidacte</option>
+            <option>Bac +2</option>
+            <option>Bac +3</option>
+            <option>Bac +4</option>
+            <option>Bac +5 et plus</option>
+        </select>
+        <br />
+        <label class="control-label" asp-for="AnneesExperience">Nombre d’années d’expérience : </label>
+        <select class="form-control" asp-for="AnneesExperience" required>
+            <option>Débutant</option>
+            <option>Moins de 1 an</option>
+            <option>De 1 à 3 ans</option>
+            <option>De 3 à 5 ans</option>
+            <option>De 5 à 10 ans</option>
+            <option>De 10 à 20 ans</option>
+        </select>
+        <br />
+        <label class="control-label" asp-for="DernierEmployeur">Dernier Employeur</label>
+        <input class="form-control" asp-for="DernierEmployeur" type="text" required />
+        <br />
+        @*<label class="control-label" asp-for="CvCandidat">Télécharger</label>
+        <input class="form-control" asp-for="CvCandidat" type="file" accept=".pdf,.img" required />*@
+        <br />
+
+            <input type="submit" class="btn btn-primary" value="Enregistrer" />
+
+
+    </form>
+</div>

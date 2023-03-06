@@ -1,0 +1,60 @@
+﻿@{
+    ViewData["Title"] = "Affichage";
+}
+
+@model IEnumerable<Candidat>
+
+
+<div class="text-center">
+    <h1 class="display-4">Page d'affichage des candidats</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Email</th>
+                <th>Télephone</th>
+                <th>Niveau d’étude</th>
+                <th>Nombre d’années d’expérience</th>
+                <th>Dernier employeur</th>
+                <th>CV</th>
+                <th>Supprimer</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelitem => item.Nom)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelitem => item.Prenom)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelitem => item.Email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelitem => item.Tel)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelitem => item.NiveauDetude)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelitem => item.AnneesExperience)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelitem => item.DernierEmployeur)
+                    </td>
+                    <td>
+                        <a href="~/LesCVs/@item.CheminDuCv " class="btn btn-outline-info">Ouvrir</a>
+                    </td>
+                    <td>
+                        @Html.ActionLink("Supprimer","Supprimer", new {id = item.IdCandidat},
+                    new {onclick="return confirm('Etes vous sûr de vouloir supprimer ce candidat');"});
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
